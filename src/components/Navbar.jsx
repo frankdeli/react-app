@@ -15,7 +15,7 @@ const Navbar = () => {
                 // const email = Cookies.get('email');
                 const configuration = {
                     method: "post",
-                    url: "https://express-rho-livid.vercel.app/logout",
+                    url: "https://express-rho-livid.vercel.app/api/v1/logout",
                     data: {email: email},
                 };
                 const response = await axios(configuration);
