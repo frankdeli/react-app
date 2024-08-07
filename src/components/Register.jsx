@@ -4,7 +4,7 @@ import axios from 'axios';
 import Spinner from './Spinner'
 import Navbar from './Navbar';
 import { GoogleLogin } from '@react-oauth/google';
-import FacebookLogin from 'react-facebook-login';
+import FacebookLogin from '@greatsumini/react-facebook-login';
 import { getToken, setToken } from '../utils/TokenUtils';
 import { setAuthToken } from '../utils/Auth';
 
@@ -71,7 +71,6 @@ const Register = () => {
                 navigate('/login'); 
             }
         } catch (error) {
-            // Handle error response
             console.log(error)
             if (error.response && error.response.data) {
                 setErrors(error.response.data);
@@ -85,7 +84,6 @@ const Register = () => {
 
     const responseMessage = async (response) => {
         try {
-          // Send the Google token to your backend
           const configuration = {
             method: "post",
             url: "https://react-app-server-six.vercel.app/login_google",
@@ -99,7 +97,7 @@ const Register = () => {
             setAuthToken(result.data.token);
             navigate('/home');
           }
-          navigate('/home');  // Redirect to home or other page
+          navigate('/home');
         } catch (error) {
           console.error('Login failed:', error);
         }
@@ -111,7 +109,6 @@ const Register = () => {
     
       const handleFacebookCallback = async (response) => {
         if (response.accessToken) {
-          // Send the token to your backend
           try {
             const configuration = {
               method: "post",
@@ -121,7 +118,6 @@ const Register = () => {
               },
             };
             const result = await axios(configuration);
-            // Handle successful login
             if(result.data.error == 0){
               setToken(result.data.token);
               setAuthToken(result.data.token);
@@ -198,12 +194,12 @@ const Register = () => {
                         {errors.general && <p className="text-red-500 text-xs italic">{errors.general}</p>}
                         <br />
                         <FacebookLogin 
-                        buttonStyle={{padding:"10.5px", fontSize:"11.5px", borderRadius:"5px", width: "100%"}}  
                         appId="490332947029722"
                         autoLoad={false}  
                         fields="name,email,picture"  
-                        callback={handleFacebookCallback}
+                        onSuccess={handleFacebookCallback}
                         icon="fa-facebook"
+                        className='bg-blue-800 p-1.5 rounded-md text-white'
                         />
                         <br />
                         <GoogleLogin onSuccess={responseMessage} onError={errorMessage} buttonStyle={{width: "100%"}} />
