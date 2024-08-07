@@ -61,7 +61,7 @@ const Register = () => {
         
         const configuration = {
             method: "post",
-            url: "https://express-rho-livid.vercel.app/register",
+            url: "https://express-rho-livid.vercel.app/api/v1/register",
             data: credentials,
         };
 
@@ -86,7 +86,7 @@ const Register = () => {
         try {
           const configuration = {
             method: "post",
-            url: "https://express-rho-livid.vercel.app/login_google",
+            url: "https://express-rho-livid.vercel.app/api/v1/login_google",
             data: {
               idToken: response.credential
             },
@@ -112,7 +112,7 @@ const Register = () => {
           try {
             const configuration = {
               method: "post",
-              url: "https://express-rho-livid.vercel.app/login_facebook",
+              url: "https://express-rho-livid.vercel.app/api/v1/login_facebook",
               data: {
                 accessToken: response.accessToken
               },
