@@ -26,7 +26,7 @@ const Dashboard = () => {
                     const email = Cookies.get('email');
                     const configuration = {
                         method: "post",
-                        url: "https://react-app-server-six.vercel.app/getUser",
+                        url: "https://express-rho-livid.vercel.app/getUser",
                         data: {email: email},
                     };
                     const response = await axios(configuration);
@@ -35,7 +35,7 @@ const Dashboard = () => {
                     if(response.data.data.is_verified_email){
                         const configuration2 = {
                             method: "post",
-                            url: "https://react-app-server-six.vercel.app/getHome",
+                            url: "https://express-rho-livid.vercel.app/getHome",
                             data: {email: email},
                         };
                         const response2 = await axios(configuration2);
@@ -70,7 +70,7 @@ const Dashboard = () => {
                 // const email = Cookies.get('email');
                 const configuration = {
                     method: "post",
-                    url: "https://react-app-server-six.vercel.app/resend_verify_email",
+                    url: "https://express-rho-livid.vercel.app/resend_verify_email",
                     data: {email: email},
                 };
                 const response = await axios(configuration);
