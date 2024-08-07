@@ -34,7 +34,7 @@ const Login = () => {
     
     const configuration = {
       method: "post",
-      url: "https://react-app-server-six.vercel.app/login",
+      url: "https://express-rho-livid.vercel.app/login",
       data: credentials,
     };
 
@@ -64,7 +64,7 @@ const Login = () => {
     try {
       const configuration = {
         method: "post",
-        url: "https://react-app-server-six.vercel.app/login_google",
+        url: "https://express-rho-livid.vercel.app/login_google",
         data: {
           idToken: response.credential
         },
@@ -90,7 +90,7 @@ const Login = () => {
       try {
         const configuration = {
           method: "post",
-          url: "https://react-app-server-six.vercel.app/login_facebook",
+          url: "https://express-rho-livid.vercel.app/login_facebook",
           data: {
             accessToken: response.accessToken
           },

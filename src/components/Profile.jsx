@@ -17,7 +17,7 @@ const EditForm = () => {
         const email = Cookies.get('email');
         const configuration = {
             method: "post",
-            url: "https://react-app-server-six.vercel.app/getUser",
+            url: "https://express-rho-livid.vercel.app/getUser",
             data: {email: email},
         };
         const response = await axios(configuration);
@@ -43,7 +43,7 @@ const EditForm = () => {
     try {
         const configuration = {
             method: "post",
-            url: "https://react-app-server-six.vercel.app/edituser",
+            url: "https://express-rho-livid.vercel.app/edituser",
             data: userData,
         };
         const response = await axios(configuration);
