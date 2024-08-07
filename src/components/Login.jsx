@@ -34,7 +34,7 @@ const Login = () => {
     
     const configuration = {
       method: "post",
-      url: "https://express-rho-livid.vercel.app/api/v1/login",
+      url: "http://localhost:5000/api/v1/login",
       data: credentials,
     };
 
@@ -64,13 +64,14 @@ const Login = () => {
     try {
       const configuration = {
         method: "post",
-        url: "https://express-rho-livid.vercel.app/api/v1/login_google",
+        url: "http://localhost:5000/api/v1/login_google",
         data: {
           idToken: response.credential
         },
       };
       const result = await axios(configuration);
       if(result.data.error == 0){
+        Cookies.set('email', result.data.email, { expires: 7 });
         setToken(result.data.token);
         setAuthToken(result.data.token);
         navigate('/home');
@@ -90,13 +91,14 @@ const Login = () => {
       try {
         const configuration = {
           method: "post",
-          url: "https://express-rho-livid.vercel.app/api/v1/login_facebook",
+          url: "http://localhost:5000/api/v1/login_facebook",
           data: {
             accessToken: response.accessToken
           },
         };
         const result = await axios(configuration);
         if(result.data.error == 0){
+          Cookies.set('email', result.data.email, { expires: 7 });
           setToken(result.data.token);
           setAuthToken(result.data.token);
           navigate('/home');

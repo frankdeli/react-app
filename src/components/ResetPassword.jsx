@@ -66,7 +66,7 @@ const EditForm = () => {
         userData.email = email
         const configuration = {
             method: "post",
-            url: "https://express-rho-livid.vercel.app/api/v1/resetPassword",
+            url: "http://localhost:5000/api/v1/resetPassword",
             data: userData,
         };
         const response = await axios(configuration);

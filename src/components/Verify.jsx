@@ -13,7 +13,7 @@ const VerifyEmail = () => {
       try {
         const configuration = {
             method: "post",
-            url: "https://express-rho-livid.vercel.app/api/v1/verify_email",
+            url: "http://localhost:5000/api/v1/verify_email",
             data: {email: email},
         };
         const response = await axios(configuration);
